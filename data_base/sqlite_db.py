@@ -25,3 +25,12 @@ async def sql_add_command(state):
 async def sql_read(message):
     for ret in cur.execute('SELECT * FROM menu').fetchall():
         await bot.send_photo(message.from_user.id, ret[0], f'Город: {ret[1]}\nУлица: {ret[2], ret[3]}\nОписание: {ret[4]}\nКоординаты: {ret[-2]}, {ret[-1]}')
+
+
+async def sql_read2():
+    return cur.execute('SELECT * FROM menu').fetchall()
+
+
+async def sql_delete_command(data):
+    cur.execute("DELETE FROM menu WHERE city == ?", (data,))
+    base.commit()
