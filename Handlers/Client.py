@@ -45,7 +45,6 @@ async def load_photo(message: types.Message, state: FSMContext):
     await message.reply('Введите город')
 
 
-# Ловим второй ответ
 async def load_city(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['city'] = message.text
@@ -53,7 +52,6 @@ async def load_city(message: types.Message, state: FSMContext):
     await message.reply('Введите улицу')
 
 
-# Ловим третий ответ
 async def load_street(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['street'] = message.text
@@ -61,7 +59,6 @@ async def load_street(message: types.Message, state: FSMContext):
     await message.reply('Введите номер дома')
 
 
-#
 async def load_number(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['number'] = int(message.text)
