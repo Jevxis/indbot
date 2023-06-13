@@ -2,7 +2,7 @@ import sqlite3 as sq
 from create_bot import dp, bot
 
 
-def sql_start():  # функция, которой создается база данных
+def sql_start(): 
     global base, cur
     base = sq.connect("all_places.db")
     cur = base.cursor()
@@ -11,9 +11,7 @@ def sql_start():  # функция, которой создается база �
     base.execute(
         'CREATE TABLE IF NOT EXISTS places(photo TEXT, city TEXT, street TEXT, number TEXT, describe TEXT, location_x '
         'TEXT, location_y TEXT)')
-    base.commit()  # сохранение этих изменений
-
-    # запись изменеий в базу данных
+    base.commit() 
 
 
 async def sql_add_command(state):
